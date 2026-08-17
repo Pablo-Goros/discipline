@@ -1,5 +1,21 @@
 {
   "workflow": {
-    "_auto_chain_active": true
+    "_auto_chain_active": true,
+    "research": true,
+    "plan_check": true,
+    "verifier": true,
+    "nyquist_validation": false,
+    "auto_advance": true
+  },
+  "mode": "yolo",
+  "granularity": "coarse",
+  "parallelization": true,
+  "commit_docs": true,
+  "model_profile": "adaptive",
+  "plan_review": {
+    "source_grounding": true
+  },
+  "ship": {
+    "pr_body_sections": []
   }
 }
