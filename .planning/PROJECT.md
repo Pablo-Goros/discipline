@@ -8,6 +8,12 @@ Discipline is a personal development web application where people use Google acc
 
 Make it fast and trustworthy to plan and act on today's habits and priority tasks from either device.
 
+## Product Goals
+
+- Replace multiple disconnected habit and task tools with one workflow that can be tailored to the product's daily practice.
+- Make daily planning and execution fast from either a PC or phone.
+- Preserve a trustworthy history of habits and tasks while keeping the system of record under operator control.
+
 ## Requirements
 
 ### Validated
@@ -34,6 +40,14 @@ Make it fast and trustworthy to plan and act on today's habits and priority task
 The product began as a replacement for one owner's habit and task tools and now supports open registration through Google. Every account receives isolated daily, weekly, and monthly habits plus a backburner-based task workflow, scheduled tasks, and daily priorities. It must preserve trustworthy habit history for at least 90 days and make changes on one device visible on another device signed into the same account.
 
 Open product decisions remain: deleted-task retention/restoration and how a changed daily plan should treat scheduled tasks after midnight.
+
+## Success Measures
+
+- A user can create or revise today's Must and Should plan in under two minutes.
+- A user can complete or undo a scheduled habit from either PC or phone in under ten seconds.
+- Habit completion history remains accurate and visible for at least 90 days.
+- Task changes made on one device appear on another device after synchronization for the same account.
+- The app can replace another habit or task app for its MVP capabilities through at least four weeks of consistent use.
 
 ## Constraints
 

@@ -113,4 +113,4 @@ Defer:
 - [Todoist — Get started with Todoist](https://www.todoist.com/help/articles/get-started-with-todoist-OgNNJR) — official documentation, updated July 2026; MEDIUM confidence through verified Brave discovery.
 - [Todoist — Complete a task with a recurring date](https://www.todoist.com/help/articles/complete-a-task-with-a-recurring-date-dmI6SVqdP) — official documentation, updated June 2026; MEDIUM confidence through verified Brave discovery.
 - [ClickUp — Habit tracking apps: streaks and analytics compared](https://clickup.com/learn/topic/productivity/tools/features/habit-tracking/) — current comparative market source; MEDIUM confidence through verified Brave discovery.
-- [Discipline PRD](../../docs/prd.md) — primary project scope and explicit product decisions.
+- [Discipline project contract](../PROJECT.md) — primary product scope and explicit product decisions.

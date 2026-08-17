@@ -51,10 +51,9 @@ This discussion intentionally changes the earlier single-user/no-auth and backup
 **Downstream agents MUST read these before planning or implementing.** Where an older artifact conflicts with the numbered decisions above, this context records the newer user-approved scope and wins until the project artifacts are reconciled.
 
 ### Product scope and phase contract
-- `.planning/PROJECT.md` — Original product definition and constraints; its single-user/no-auth and recovery statements are superseded by D-01 through D-08.
+- `.planning/PROJECT.md` — Canonical product/PRD contract, including the reconciled account, data-isolation, and persistence scope.
 - `.planning/REQUIREMENTS.md` — Existing requirement inventory and phase traceability; must be revised to add account requirements and change `SYNC-04` from recoverability to persistence only.
 - `.planning/ROADMAP.md` — Existing five-phase delivery sequence; Phase 1 must be expanded with the account scope and revised persistence success criterion.
-- `docs/prd.md` — Original PRD and product behavior; its account-login exclusion is superseded by D-01 through D-06.
 
 ### Technical baseline
 - `.planning/research/STACK.md` — Baseline Next.js/PostgreSQL/Prisma deployment stack; its explicit no-auth choice is superseded, and its previously deferred authentication option must be re-evaluated.

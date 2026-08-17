@@ -191,7 +191,7 @@ Phases with standard patterns (skip research-phase):
 ### Secondary (MEDIUM confidence)
 
 - [Next.js release guidance](https://nextjs.org/blog), [Prisma Migrate](https://docs.prisma.io/docs/cli/migrate), and [TanStack Query invalidation guidance](https://tanstack.com/query/v5/docs/framework/react/guides/invalidations-from-mutations) — implementation stack and synchronization practices.
-- [Todoist Today view guidance](https://www.todoist.com/help/articles/plan-your-day-with-the-today-view-UVUXaiSs) and the [Discipline PRD](../../docs/prd.md) — feature expectations and authoritative project scope.
+- [Todoist Today view guidance](https://www.todoist.com/help/articles/plan-your-day-with-the-today-view-UVUXaiSs) and the [Discipline project contract](../PROJECT.md) — feature expectations and authoritative product scope.
 
 ---
 *Research completed: 2026-08-17*
