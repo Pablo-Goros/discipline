@@ -1,0 +1,1 @@
+{"content":"Date-only planning data must be modelled as calendar dates rather than instants. Named time zones and an explicit monthly end-of-month policy prevent missed or duplicated eligibility near offset changes and short months.","source":"web","provider":"websearch","confidence":"LOW","fetched_at":"2026-08-17T19:07:04.561Z","ttl":86400000,"kind":"web"}

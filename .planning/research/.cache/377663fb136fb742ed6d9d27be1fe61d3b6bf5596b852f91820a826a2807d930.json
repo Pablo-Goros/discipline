@@ -1,0 +1,1 @@
+{"content":"Single-user scope does not make a public backend safe. A narrow access boundary, secret management, TLS, origin controls, explicit API schemas, backups, and update hygiene are needed before exposing personal planning data.","source":"web","provider":"websearch","confidence":"LOW","fetched_at":"2026-08-17T19:07:04.670Z","ttl":86400000,"kind":"web"}
