@@ -34,8 +34,7 @@ Database rules must not be enforced only in the browser or ORM. At minimum, the 
 | Technology | Version | Purpose | Why |
 |------------|---------|---------|-----|
 | Docker Compose | Compose Specification / current Docker Engine | Repeatable self-hosting | Run only application and PostgreSQL services in one declarative deployment. A named PostgreSQL volume keeps data independent of application container replacement. |
-| Caddy | 2.x current stable | HTTPS reverse proxy and automatic certificates | A compact, self-hostable reverse proxy with automatic TLS; terminate public HTTPS there and expose PostgreSQL only to the Compose network. |
-| Restic | 0.18+ | Encrypted off-host backups | A self-hosted database is only owned if it is recoverable. Run a scheduled `pg_dump` (or physical backup) and back up the output to a separately controlled destination using Restic encryption. Test restoration before relying on it. |
+| Caddy | 2.x current stable | HTTPS reverse proxy and automatic certificates | A compact, self-hostable reverse proxy with automatic TLS; terminate public HTTPS there, let the application enforce Google sign-in, and expose PostgreSQL only to the Compose network. |
 | GitHub Actions (or host-local CI) | current hosted runner | Checks and image build | Run typecheck, unit tests, Playwright smoke tests, and migration validation on every change. It is CI only; it is not the data host. |
 
 ### Supporting Libraries
@@ -46,6 +45,7 @@ Database rules must not be enforced only in the browser or ORM. At minimum, the 
 | `react-hook-form` | 7.x | Performant task/habit forms | Use for create/edit and daily-plan forms, with a Zod resolver. Keep simple completion buttons as direct actions. |
 | `@tanstack/react-query` | 5.x | Client query cache, mutation state, and refetching | Use on interactive client views. Invalidate focused keys after successful mutations and refetch on window focus so the second device sees changes naturally. Do not duplicate data in another global state store. |
 | `date-fns` | 4.x | Date display and pure calendar calculations | Use only after explicitly converting between the user's time zone and UTC. Represent schedule dates as `YYYY-MM-DD`/SQL `DATE`; never infer a day from a browser-local `Date` alone. |
+| Better Auth | current compatible release | Google OAuth, database-backed accounts, and sessions | Re-evaluate during Phase 1 research and use the Google provider with Prisma/PostgreSQL if compatibility is confirmed. Do not add local passwords or other providers. |
 | `lucide-react` | current compatible release | Habit and task icons | Provides the requested icon selection without shipping a custom icon system. Persist the chosen icon's stable string name, not SVG markup. |
 | `vitest` + Testing Library | 4.x + current | Fast unit/component tests | Test recurrence expansion, eligibility, task-state transitions, and plan-limit logic. |
 | Playwright | current compatible release | End-to-end browser checks | Cover phone-sized and desktop workflows plus the two-device synchronization acceptance case. |
@@ -60,14 +60,15 @@ Database rules must not be enforced only in the browser or ORM. At minimum, the 
 | API style | Next.js Route Handlers | tRPC / GraphQL | The app needs a small, same-origin internal API. Route Handlers plus Zod are simpler to debug, deploy, and later expose to a PWA if needed. |
 | Synchronization | Request/response + React Query invalidation/refetch | WebSockets, CRDTs, or event sourcing | The PRD requires synchronization after normal requests, not live collaboration or offline conflict resolution. Add polling/websocket notifications only if real usage shows a need. |
 | UI | Tailwind + selected shadcn components | Material UI or a paid component suite | A large design system would add weight and theming decisions to a highly focused personal app. |
-| Authentication | No auth in MVP | Better Auth | Better Auth is self-hostable and supports PostgreSQL/Prisma, but it introduces user, session, and account schema expressly excluded by the PRD. Reconsider it only when the project adds a real access-control requirement. |
+| Authentication | Google OAuth with database-backed sessions | Hand-rolled OAuth/session implementation | Phase 1 now requires open Google registration, 30-day sessions, account deletion, and strict account-level data isolation. Prefer a maintained authentication library after compatibility research rather than owning the security-sensitive protocol surface. |
 | Hosting | Docker Compose on an owned VPS/home server | Vercel/Supabase managed services | These are convenient but do not satisfy the stated self-owned backend-database constraint as directly. |
 
 ## Explicit Non-Choices for the MVP
 
 - Do not build native iOS/Android clients, a PWA offline queue, CRDT syncing, service-worker conflict resolution, or a second API service.
 - Do not add Redis, Kafka, Elasticsearch, a message queue, a vector database, analytics SaaS, or AI services. None supports the core daily habit/task loop.
-- Do not implement user accounts, social sign-in, role-based access, or Better Auth yet. Protect the single-user deployment at the network/reverse-proxy layer and revisit an application-level owner gate before making it publicly reachable.
+- Do not implement local passwords, password recovery, additional identity providers, organization roles, or invitation gates in v1. Google OAuth registration is public to any Google account.
+- Do not add Restic, off-host backups, backup retention, or disaster-recovery automation in v1. Use a durable PostgreSQL volume and document that the product guarantees persistence only.
 - Do not use `postgres:latest`, unpinned npm ranges without a lockfile, or a database exposed on the public Internet. Pin the tested container/image digest and commit the package lockfile.
 
 ## Installation
@@ -97,6 +98,5 @@ At implementation time, use `pnpm outdated` and the official release notes to up
 - [PostgreSQL 18.4 release notes](https://www.postgresql.org/docs/18/release-18-4.html) and [supported-version information](https://www.postgresql.org/docs/18/reference-server.html) — MEDIUM: PostgreSQL 18 is current and maintained; apply the then-current patch release.
 - [TanStack Query mutation invalidation guide](https://tanstack.com/query/v5/docs/framework/react/guides/invalidations-from-mutations) — MEDIUM: mutation success is the appropriate point to invalidate/refetch related query keys.
 - [Tailwind CSS 4.3 announcement](https://tailwindcss.com/blog) — MEDIUM: current Tailwind v4 release line and CSS-first configuration.
-- [Better Auth database documentation](https://better-auth.com/docs/concepts/database) — MEDIUM: validates it is a self-hostable future option, not a reason to add login before it is required.
+- [Better Auth database documentation](https://better-auth.com/docs/concepts/database) — MEDIUM: validates it as a self-hostable authentication candidate to re-evaluate for the now-required Google OAuth account system.
 - [Node.js downloads](https://nodejs.org/en/download/current) — MEDIUM: Node 24 is the current LTS series at research time.
-

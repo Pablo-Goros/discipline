@@ -5,12 +5,20 @@
 
 ## v1 Requirements
 
+### Accounts & Identity
+
+- [ ] **AUTH-01**: Any user with a Google account can sign in and automatically create a Discipline account.
+- [ ] **AUTH-02**: Each account's habits, tasks, daily plans, settings, and lifecycle data are isolated from every other account.
+- [ ] **AUTH-03**: User sessions last up to 30 days, and explicit sign-out revokes the active session.
+- [ ] **AUTH-04**: A first-time user must confirm a browser-detected IANA timezone before entering the app and can later change it after confirming the old and new local dates.
+- [ ] **AUTH-05**: A user can immediately and permanently delete their account and all user-owned live data after strong confirmation.
+
 ### Foundation & Synchronization
 
-- [ ] **SYNC-01**: User can use the responsive web app from both a PC and phone against the same self-owned backend database.
+- [ ] **SYNC-01**: User can use the responsive web app from both a PC and phone against the same operator-controlled backend database while signed into the same account.
 - [ ] **SYNC-02**: A habit or task created, edited, scheduled, completed, or deleted on one device is reflected after synchronization when viewed from the other device.
 - [ ] **SYNC-03**: User can see a clear save, retry, or refresh outcome when a data change cannot be synchronized.
-- [ ] **SYNC-04**: User's habit and task data is persisted and recoverable from the self-owned backend database.
+- [ ] **SYNC-04**: User data persists in PostgreSQL across application restarts and application-container replacement.
 
 ### Habits
 
@@ -61,17 +69,23 @@
 
 | Feature | Reason |
 |---------|--------|
-| Account or user login | The MVP has one owner; deployment access protection is an operational concern, not an account feature. |
+| Local passwords, password recovery, and non-Google identity providers | V1 uses Google OAuth exclusively. |
 | AI features | Explicitly excluded by the PRD. |
 | Full offline support and conflict resolution | Deferred until the online-first MVP workflow is proven. |
 | Native mobile applications | A responsive web app is sufficient for the PC/phone MVP. |
 | Google Calendar integration | Requires OAuth and task/event policy decisions; deferred. |
-| Collaboration, sharing, or team features | The product is intentionally single-user. |
+| Collaboration, sharing, or team features | Accounts are isolated personal workspaces; sharing and team workflows remain out of scope. |
+| Off-host backups and disaster recovery | V1 guarantees durable live PostgreSQL persistence, not recovery from host loss or database corruption. |
 
 ## Traceability
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
+| AUTH-01 | Phase 1 | Pending |
+| AUTH-02 | Phase 1 | Pending |
+| AUTH-03 | Phase 1 | Pending |
+| AUTH-04 | Phase 1 | Pending |
+| AUTH-05 | Phase 1 | Pending |
 | SYNC-01 | Phase 1 | Pending |
 | SYNC-02 | Phase 5 | Pending |
 | SYNC-03 | Phase 5 | Pending |
@@ -97,8 +111,8 @@
 | QUAL-03 | Phase 5 | Pending |
 
 **Coverage:**
-- v1 requirements: 23 total
-- Mapped to phases: 23
+- v1 requirements: 28 total
+- Mapped to phases: 28
 - Unmapped: 0 ✓
 
 ---

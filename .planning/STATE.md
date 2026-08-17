@@ -3,14 +3,14 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 current_phase: 1
-current_phase_name: Foundation, Data Contracts, and Safe Deployment
+current_phase_name: Account Foundation, Data Contracts, and Persistent Deployment
 status: planning
-stopped_at: Phase 1 context gathered; scope reconciliation required before planning
-last_updated: "2026-08-17T19:46:04.761Z"
+stopped_at: Phase 1 scope reconciled; ready for planning
+last_updated: "2026-08-17T19:52:36.803Z"
 last_activity: 2026-08-17
-last_activity_desc: Created the MVP roadmap with five requirement-driven phases.
+last_activity_desc: Reconciled Phase 1 for public Google accounts and persistence-only storage.
 progress:
-  total_phases: 1
+  total_phases: 5
   completed_phases: 0
   total_plans: 0
   completed_plans: 0
@@ -23,16 +23,16 @@ progress:
 See: .planning/PROJECT.md (updated 2026-08-17)
 
 **Core value:** Make it fast and trustworthy to plan and act on today's habits and priority tasks from either device.
-**Current focus:** Phase 1 — Foundation, Data Contracts, and Safe Deployment
+**Current focus:** Phase 1 — Account Foundation, Data Contracts, and Persistent Deployment
 
 ## Current Position
 
-Phase: 1 of 5 (Foundation, Data Contracts, and Safe Deployment)
+Phase: 1 of 5 (Account Foundation, Data Contracts, and Persistent Deployment)
 Plan: Not yet planned
 Status: Ready to plan
-Last activity: 2026-08-17 — Created the MVP roadmap with five requirement-driven phases.
+Last activity: 2026-08-17 — Reconciled Phase 1 for public Google accounts and persistence-only storage.
 
-Progress: [□□□□□□□□□□] 0%
+Progress: [░░░░░░░░░░] 0%
 
 ## Performance Metrics
 
@@ -70,9 +70,13 @@ None yet.
 
 ### Blockers/Concerns
 
-- [Phase 1]: Select the deployment access boundary, backup destination, and timezone-change policy.
+- [Phase 1]: Confirm the authentication library and public-registration abuse safeguards during research.
 - [Phase 2]: Confirm monthly scheduling behavior for months without the selected day.
 - [Phase 3–4]: Define deleted-task restoration and after-midnight daily-plan behavior before schema work.
+
+### Roadmap Evolution
+
+- Phase 1 edited: edited fields: title, goal, requirements, success_criteria
 
 ## Deferred Items
 
@@ -83,6 +87,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-08-17T19:46:04.668Z
-Stopped at: Phase 1 context gathered; scope reconciliation required before planning
+Last session: 2026-08-17T19:51:45.633Z
+Stopped at: Phase 1 scope reconciled; ready for planning
 Resume file: .planning/phases/01-foundation-data-contracts-and-safe-deployment/01-CONTEXT.md

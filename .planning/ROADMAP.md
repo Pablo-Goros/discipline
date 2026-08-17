@@ -2,7 +2,7 @@
 
 ## Overview
 
-Discipline reaches its MVP through five delivery boundaries: establish a safe, recoverable shared foundation; prove the daily habit loop; add the independent task lifecycle; layer dated Must/Should planning into Today; then validate the dependable PC-and-phone experience. Each phase strengthens the user's ability to plan and act on the same trusted personal data from either device.
+Discipline reaches its MVP through five delivery boundaries: establish public Google accounts on a persistent shared foundation; prove the daily habit loop; add the independent task lifecycle; layer dated Must/Should planning into Today; then validate the dependable PC-and-phone experience. Each phase strengthens a user's ability to plan and act on isolated personal data from either device.
 
 ## Phases
 
@@ -12,7 +12,7 @@ Discipline reaches its MVP through five delivery boundaries: establish a safe, r
 
 Decimal phases appear between their surrounding integers in numeric order.
 
-- [ ] **Phase 1: Foundation, Data Contracts, and Safe Deployment** - Establish a responsive, self-owned, recoverable data foundation.
+- [ ] **Phase 1: Account Foundation, Data Contracts, and Persistent Deployment** - Establish public Google accounts, isolated data, and responsive persistent storage.
 - [ ] **Phase 2: Habit Tracking** - Deliver scheduled habits, completion/undo, and durable dated history.
 - [ ] **Phase 3: Task Lifecycle and Backburner** - Deliver capture, scheduling, completion, deletion, and overdue task workflows.
 - [ ] **Phase 4: Dated Daily Planning and Today** - Deliver constrained Must/Should plans and a unified daily view.
@@ -20,14 +20,17 @@ Decimal phases appear between their surrounding integers in numeric order.
 
 ## Phase Details
 
-### Phase 1: Foundation, Data Contracts, and Safe Deployment
-**Goal**: User data has a responsive, secure, self-owned, and recoverable foundation for daily use from PC and phone.
+### Phase 1: Account Foundation, Data Contracts, and Persistent Deployment
+**Goal**: Users can create accounts with Google, access isolated data from PC or phone, and retain that data through application restarts on self-owned PostgreSQL.
 **Mode:** mvp
 **Depends on**: Nothing (first phase)
-**Requirements**: SYNC-01, SYNC-04
+**Requirements**: AUTH-01, AUTH-02, AUTH-03, AUTH-04, AUTH-05, SYNC-01, SYNC-04
 **Success Criteria** (what must be TRUE):
-  1. User can open the responsive web app on a PC or phone while both use the same self-owned backend database.
-  2. User's saved habit and task data remains available after an application restart and can be recovered from the backend database.
+  1. Any Google account can sign in and automatically create an isolated Discipline account.
+  2. First-time users must confirm their detected IANA timezone before reaching the responsive signed-in home.
+  3. Sessions last up to 30 days; sign-out revokes access, and one account cannot access another account's data.
+  4. Account settings show Google identity and timezone, support confirmed timezone changes, and permanently delete the account and its owned data.
+  5. PostgreSQL data survives application restarts and application-container replacement; disaster recovery is not promised.
 **Plans**: TBD
 **UI hint**: yes
 
