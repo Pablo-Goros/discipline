@@ -6,9 +6,9 @@ current_phase: 1
 current_phase_name: Account Foundation, Data Contracts, and Persistent Deployment
 status: planning
 stopped_at: Phase 1 scope reconciled; ready for planning
-last_updated: "2026-08-17T19:52:36.803Z"
+last_updated: "2026-08-17T17:00:42.6821778-03:00"
 last_activity: 2026-08-17
-last_activity_desc: Reconciled Phase 1 for public Google accounts and persistence-only storage.
+last_activity_desc: Consolidated the deleted PRD into the canonical project contract.
 progress:
   total_phases: 5
   completed_phases: 0
@@ -30,7 +30,7 @@ See: .planning/PROJECT.md (updated 2026-08-17)
 Phase: 1 of 5 (Account Foundation, Data Contracts, and Persistent Deployment)
 Plan: Not yet planned
 Status: Ready to plan
-Last activity: 2026-08-17 — Reconciled Phase 1 for public Google accounts and persistence-only storage.
+Last activity: 2026-08-17 — Completed quick task 260817-nkc: consolidated the deleted PRD into the canonical project contract.
 
 Progress: [░░░░░░░░░░] 0%
 
@@ -62,7 +62,7 @@ Progress: [░░░░░░░░░░] 0%
 Decisions are logged in PROJECT.md Key Decisions table. Recent decisions affecting current work:
 
 - [Initialization]: Deliver a five-phase vertical MVP: foundation, habits, tasks, dated planning, then cross-device reliability.
-- [MVP scope]: Use one responsive web app and a self-owned backend database; exclude account UI, AI, offline conflict resolution, and calendar integration.
+- [MVP scope]: Use one responsive web app with public Google sign-in, isolated account data, and an operator-controlled backend; exclude AI, offline conflict resolution, and calendar integration.
 
 ### Pending Todos
 
@@ -73,6 +73,12 @@ None yet.
 - [Phase 1]: Confirm the authentication library and public-registration abuse safeguards during research.
 - [Phase 2]: Confirm monthly scheduling behavior for months without the selected day.
 - [Phase 3–4]: Define deleted-task restoration and after-midnight daily-plan behavior before schema work.
+
+### Quick Tasks Completed
+
+| # | Description | Date | Commit | Directory |
+|---|-------------|------|--------|-----------|
+| 260817-nkc | Consolidate the deleted PRD into `.planning/PROJECT.md` and replace obsolete links | 2026-08-17 | 10b1f4f | [260817-nkc-consolidate-deleted-docs-prd-md-into-pla](./quick/260817-nkc-consolidate-deleted-docs-prd-md-into-pla/) |
 
 ### Roadmap Evolution
 
